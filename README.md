@@ -18,7 +18,7 @@ project-root/
 ```
 
 ## UML Diagram 
-![UML Diagram](Screenshot 2025-03-03 215034.png)
+![UML Diagram](docs/UMLProto.png)
 
 
 

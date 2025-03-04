@@ -18,12 +18,24 @@ project-root/
 ```
 
 ## UML Diagram 
-![UML Diagram](UMLProto.png)
+![UML Diagram](UMLProto2.png)
 
 
 
 ## Functions
--Grid(): Constructor that initializes the grid with dead cells.
+-BaseGrid (Abstract Base Class)
+
+-BaseGrid(): Constructor to initialize the BaseGrid with dead cells.
+
+-~BaseGrid(): Virtual destructor to allow proper cleanup in derived classes.
+
+-update(): Pure virtual function for updating the grid.
+
+-display(): Pure virtual function for displaying the grid.
+
+-Grid Class
+
+-Grid(): Constructor that initializes the grid.
 
 -randomize(): Randomly sets cells as alive or dead.
 
@@ -36,14 +48,6 @@ project-root/
 -saveToFile(string filename): Saves the grid state to a file.
 
 -loadFromFile(string filename): Loads a grid state from a file.
-
--BaseGrid (Abstract Base Class)
-
--update(): Pure virtual function for updating the grid.
-
--display(): Pure virtual function for displaying the grid.
-
--~BaseGrid(): Virtual destructor to allow proper cleanup in derived classes.
 
 -Cell Class
 

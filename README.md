@@ -17,6 +17,10 @@ project-root/
 │-- data/
 ```
 
+## UML Diagram 
+![UML Diagram](docs/Screenshot 2025-04-04 215034.png)
+
+
 
 ## Functions
 -Grid(): Constructor that initializes the grid with dead cells.

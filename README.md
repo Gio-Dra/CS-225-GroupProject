@@ -11,18 +11,12 @@ project-root/
 │   │-- cell.cpp
 │-- docs/
 │   │-- UML_Diagram.png
-│   │-- style_guide.txt
+│   │-- STYLE_GUIDE.md
 │   │-- README.md
 │-- build/
 │-- data/
 ```
 
-## Guidelines
-- Use `Cell` and `Grid` classes.
-- Keep functions focused on one task.
-- Follow proper file organization and naming conventions.
-- Use exception handling for file operations.
-- Ensure code compiles without warnings.
 
 ## Functions
 - To be filled later

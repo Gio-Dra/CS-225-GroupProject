@@ -34,5 +34,3 @@
 ## Error Handling
 - Use `try-catch` blocks for file I/O operations.
 - Return error codes where applicable.
-
-This style guide ensures consistency, readability, and maintainability in the Conway's Game of Life project.

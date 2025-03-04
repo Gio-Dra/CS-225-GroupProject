@@ -1,8 +1,21 @@
 # Conway's Game of Life - CS225 Project
 
 ## Structure
-project-root/ │-- src/ │ │-- main.cpp │ │-- grid.h │ │-- grid.cpp │ │-- cell.h │ │-- cell.cpp │-- docs/ │ │-- UML_Diagram.png │ │-- style_guide.txt │ │-- README.md │-- build/ │-- data/
-
+```
+project-root/
+│-- src/
+│   │-- main.cpp
+│   │-- grid.h
+│   │-- grid.cpp
+│   │-- cell.h
+│   │-- cell.cpp
+│-- docs/
+│   │-- UML_Diagram.png
+│   │-- style_guide.txt
+│   │-- README.md
+│-- build/
+│-- data/
+```
 
 ## Guidelines
 - Use `Cell` and `Grid` classes.

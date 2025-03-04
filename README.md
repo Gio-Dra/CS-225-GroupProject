@@ -18,7 +18,7 @@ project-root/
 ```
 
 ## UML Diagram 
-![UML Diagram](CS-225-GroupProject/UMLProto.png)
+![UML Diagram](UMLProto.png)
 
 
 

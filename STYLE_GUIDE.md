@@ -35,12 +35,4 @@
 - Use `try-catch` blocks for file I/O operations.
 - Return error codes where applicable.
 
-## Memory Management
-- Use `vector` instead of raw arrays.
-- Avoid memory leaks by ensuring proper deallocation where necessary.
-
-## Compilation & Execution
-- Ensure code compiles without warnings.
-- Use `-Wall -Wextra` flags when compiling with `g++`.
-
 This style guide ensures consistency, readability, and maintainability in the Conway's Game of Life project.

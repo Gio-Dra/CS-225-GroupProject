@@ -3,22 +3,20 @@
 ## Structure
 ```
 project-root/
-│-- src/
-│   │-- GameOfLife.cpp
-│   │-- grid.h
-│   │-- grid.cpp
-│   │-- cell.h
-│   │-- cell.cpp
-│-- docs/
-│   │-- UML_Diagram.png
-│   │-- STYLE_GUIDE.md
+|   │-- STYLE_GUIDE.md
 │   │-- README.md
+│-- Code/
+│   │-- GameOfLife.cpp
+│   │-- Grid.h
+│   │-- Cell.h
+│-- Pretty/
+│   │-- UML_Diagram.png
 │-- build/
 │-- data/
 ```
 
 ## UML Diagram 
-![UML Diagram](UMLProto2.png)
+![UML Diagram](/Pretty/UMLProto1-2.png)
 
 
 

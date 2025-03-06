@@ -4,7 +4,7 @@
 ```
 project-root/
 │-- src/
-│   │-- main.cpp
+│   │-- GameOfLife.cpp
 │   │-- grid.h
 │   │-- grid.cpp
 │   │-- cell.h

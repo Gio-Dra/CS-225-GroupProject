@@ -3,21 +3,15 @@
 
 class Cell {
 private:
-    bool state;       // Current state (alive or dead)
-    bool futureState; // Next state after an update
+    bool alive;
 
 public:
-    // Constructor and Destructor
-    Cell();
-    ~Cell() {}
+    // Constructor initializes the cell as dead
+    Cell() : alive(false) {}
 
-    // Getters and Setters
-    bool isAlive() const;
-    void setState(bool newState);
-
-    // Future state management
-    void setFutureState(bool newState);
-    void applyFutureState();
+    // Set and check cell state
+    void setAlive(bool state) { alive = state; }
+    bool isAlive() const { return alive; }
 };
 
 #endif // CELL_H

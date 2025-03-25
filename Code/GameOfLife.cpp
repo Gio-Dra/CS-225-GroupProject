@@ -8,8 +8,8 @@ using namespace std;  // Added to avoid std:: prefix
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 20;
-    const int height = 10;
+    const int width = 200;
+    const int height = 100;
     Grid game(width, height);
 
     // **(Daniel's Mode Selection Menu)**

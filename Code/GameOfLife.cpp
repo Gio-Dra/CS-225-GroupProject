@@ -39,7 +39,20 @@ int main() {
     while (true) {
         game.display(); //Contained in grid.h
         game.update(); //Contained in... ...grid.h lol
-        this_thread::sleep_for(chrono::milliseconds(200)); // The stack overflow part
+        // Pause execution for 200 milliseconds to slow down the loop
+        // This makes the animation human-readable instead of blazing by at CPU speed
+
+        // std::this_thread::sleep_for(...) pauses the current thread
+        // std::chrono::milliseconds(200) creates a duration object of 200 milliseconds
+        // Combined, this line tells the CPU: "Wait 200ms before doing the next update"
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+        // Refrences:
+        // "sleep_for" https://cplusplus.com/reference/thread/this_thread/sleep_for/
+        // "chrono"  https://en.cppreference.com/w/cpp/chrono
+        // "this_thread" https://en.cppreference.com/w/cpp/thread/this_thread
+
+
     }
 
     return 0;

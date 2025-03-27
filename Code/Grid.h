@@ -11,7 +11,7 @@ using namespace std;
 
 class Grid {
 private:
-    std::vector<Cell> cells;
+    vector<Cell> cells;
     int width, height;
 
     // Converts (x, y) to 1D index so we can edit it within the code itself, simpler
@@ -82,7 +82,7 @@ public:
     void update() {
         // Step 1: Create a copy of the current grid state.
         // This will hold the next generation of cell states.
-        std::vector<Cell> nextState = cells;
+        vector<Cell> nextState = cells;
 
         // Step 2: Loop through every cell in the grid (row by row, col by col)
         for (int y = 0; y < height; y++) {
@@ -123,9 +123,9 @@ public:
             for (int x = 0; x < width; x++) {
                 // Access the cell at (x, y) using the index() function to convert 2D coords to 1D,
                 // then check if that specific cell is currently alive (returns true if alive, false if dead)
-                std::cout << (cells[index(x, y)].isAlive() ? '#' : ' ') << " ";
+                cout << cells[index(x, y)] << " ";
             }
-            std::cout << std::endl;
+            cout << endl;
         }
     }
 };

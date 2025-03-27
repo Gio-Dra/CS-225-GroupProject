@@ -1,15 +1,23 @@
 #include "Grid.h"
+#include "Cell.h"
 #include "ErrorCheck.h"
 #include <thread> // Stole from stack overflow to get a pause cycle going
 #include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
+
+// Little inclusion for operator overloading which changes the display function in Grid.h
+ostream& operator<<(ostream& out, const Cell& cell) {
+    out << (cell.isAlive() ? '#' : ' ');
+    return out;
+}
+
 
 using namespace std;  // Added to avoid std:: prefix
 
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 200;
-    const int height = 100;
+    const int width = 100;
+    const int height = 200;
     Grid game(width, height);
 
     // **(Daniel's Mode Selection Menu)**
@@ -42,10 +50,10 @@ int main() {
         // Pause execution for 200 milliseconds to slow down the loop
         // This makes the animation human-readable instead of blazing by at CPU speed
 
-        // std::this_thread::sleep_for(...) pauses the current thread
-        // std::chrono::milliseconds(200) creates a duration object of 200 milliseconds
+        // this_thread::sleep_for(...) pauses the current thread
+        // chrono::milliseconds(200) creates a duration object of 200 milliseconds
         // Combined, this line tells the CPU: "Wait 200ms before doing the next update"
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        this_thread::sleep_for(chrono::milliseconds(200));
 
         // Refrences:
         // "sleep_for" https://cplusplus.com/reference/thread/this_thread/sleep_for/

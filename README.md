@@ -23,10 +23,9 @@ Custom input validation using `try`, `throw`, `catch` (then simplified):
 ---
 ```
 void errorCheckInt(int &x, int min, int max, string prompt);
-void getValidCoordinates(int &x, int &y, int width, int height);
 ```
 ---
-### Operator Overloading
+###   Operator Overloading
 ```
 std::ostream& operator<<(std::ostream& out, const Cell& cell);
 ```
@@ -37,7 +36,6 @@ std::cout << cells[index[idx]];
 ---
 ### Manual & Random Modes
 #### Manual: Users input specific live cell coordinates.
----
 #### Random: Grid is seeded with 50% chance of each cell being alive.
 ---
 ### 1D Grid Logic (Flattened 2D)

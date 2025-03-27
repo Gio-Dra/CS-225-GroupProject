@@ -1,59 +1,63 @@
 # Conway's Game of Life - CS225 Project
 
 ## Structure
+---
 ```
-project-root/
-|   │-- STYLE_GUIDE.md
-│   │-- README.md
-│-- Code/
-│   │-- GameOfLife.cpp
-│   │-- Grid.h
-│   │-- Cell.h
-│-- Pretty/
-│   │-- UML_Diagram.png
-│-- build/
-│-- data/
+| File            | Purpose                                 |
+|-----------------|------------------------------------------|
+| GameOfLife.cpp  | Main logic and game loop                 |
+| Grid.h          | Manages the 2D grid using a 1D vector    |
+| Cell.h          | Simple class representing each cell      |
+| ErrorCheck.h    | Handles user input and exceptions        |
 ```
+---
 
 ## UML Diagram 
 ![UML Diagram](/Pretty/UMLProto1-2.png)
 
 
 
-## Functions
--BaseGrid (Abstract Base Class)
+## 🛠️ Files
 
--BaseGrid(): Constructor to initialize the BaseGrid with dead cells.
+| File            | Purpose                                 |
+|-----------------|------------------------------------------|
+| GameOfLife.cpp  | Main logic and game loop                 |
+| Grid.h          | Manages the 2D grid using a 1D vector    |
+| Cell.h          | Simple class representing each cell      |
+| ErrorCheck.h    | Handles user input and exceptions        |
 
--~BaseGrid(): Virtual destructor to allow proper cleanup in derived classes.
+---
 
--update(): Pure virtual function for updating the grid.
+## Features Implemented
 
--display(): Pure virtual function for displaying the grid.
+###  Exception Handling
 
--Grid Class
-
--Grid(): Constructor that initializes the grid.
-
--randomize(): Randomly sets cells as alive or dead.
-
--countNeighbors(int x, int y) -> int: Counts the number of live neighbors for a given cell.
-
--update(): Applies Conway's Game of Life rules to update the grid state.
-
--display(): Prints the current state of the grid to the console.
-
--saveToFile(string filename): Saves the grid state to a file.
-
--loadFromFile(string filename): Loads a grid state from a file.
-
--Cell Class
-
--Cell(): Constructor to initialize cell state.
-
--~Cell(): Destructor for cleanup.
-
-
-
-## Order of Operations
+Custom input validation using `try`, `throw`, `catch` (then simplified):
+---
+```
+void errorCheckInt(int &x, int min, int max, string prompt);
+void getValidCoordinates(int &x, int &y, int width, int height);
+```
+---
+### Operator Overloading
+```
+std::ostream& operator<<(std::ostream& out, const Cell& cell);
+```
+Allows clean output 
+```
+std::cout << cells[index[idx]];
+```
+---
+### Manual & Random Modes
+#### Manual: Users input specific live cell coordinates.
+---
+#### Random: Grid is seeded with 50% chance of each cell being alive.
+---
+### 1D Grid Logic (Flattened 2D)
+A 2D grid is flattened to a 1D vector:
+```
+int index(int x, int y) const {
+    return y * width + x;
+}
+```
 

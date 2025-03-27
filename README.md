@@ -15,19 +15,6 @@
 ## UML Diagram 
 ![UML Diagram](/Pretty/UMLProto1-2.png)
 
-
-
-## 🛠️ Files
-
-| File            | Purpose                                 |
-|-----------------|------------------------------------------|
-| GameOfLife.cpp  | Main logic and game loop                 |
-| Grid.h          | Manages the 2D grid using a 1D vector    |
-| Cell.h          | Simple class representing each cell      |
-| ErrorCheck.h    | Handles user input and exceptions        |
-
----
-
 ## Features Implemented
 
 ###  Exception Handling

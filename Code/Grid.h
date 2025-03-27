@@ -90,7 +90,7 @@ public:
                 // Step 3: Count how many of the 8 neighboring cells are alive
                 int liveNeighbors = countNeighbors(x, y);
 
-                // Step 4: Convert 2D coordinates (x, y) to 1D index in the cells vector
+                // Step 4: Convert 2D coordinates (x, y) to 1D index in the cells vector (making a 2D vector? no clue)
                 int idx = index(x, y);
 
                 // Step 5: Apply Game of Life rules:
@@ -99,7 +99,7 @@ public:
                 // If the current cell is alive...
                 if (cells[idx].isAlive()) {
                     // ...it stays alive ONLY if it has 2 or 3 live neighbors.
-                    // Otherwise, it dies from loneliness (<2) or overpopulation (>3).
+                    // Otherwise, it dies from loneliness :< (<2) or overpopulation (>3).
                     nextState[idx].setAlive(liveNeighbors == 2 || liveNeighbors == 3);
                 } else {
                     // RULE 4:

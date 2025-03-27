@@ -18,7 +18,7 @@ int main() {
     string modePrompt = "Enter the number of the mode you would like: ";
     cout << modePrompt;
     cin >> mode;
-    errorCheckInt(mode, 1, 3, modePrompt);  // Ensures valid input
+    errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
 
     if (mode == 1) {  // **Manual Mode (Daniel's implementation)**
         int aliveCellCount;

@@ -2,10 +2,10 @@
 #define GRID_H
 
 #include "Cell.h"
-#include <vector>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <vector>
+#include <cstdlib> // Provides rand() and srand() functions
+#include <ctime> // Provides time() function
 
 using namespace std;
 

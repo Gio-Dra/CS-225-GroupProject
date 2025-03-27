@@ -4,18 +4,6 @@
 #include <thread> // Stole from stack overflow to get a pause cycle going
 #include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
 
-// Little inclusion for operator overloading which changes the display function in Grid.h
-// Is this right place to include this?
-ostream& operator<<(ostream& out, const Cell& cell) {
-    if (cell.isAlive()) {
-        out << '#';
-    } else {
-        out << ' ';
-    }
-    return out;
-}
-
-
 using namespace std;  // Added to avoid std:: prefix
 
 int main() {

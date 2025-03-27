@@ -5,8 +5,13 @@
 #include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
 
 // Little inclusion for operator overloading which changes the display function in Grid.h
+// Is this right place to include this?
 ostream& operator<<(ostream& out, const Cell& cell) {
-    out << (cell.isAlive() ? '#' : ' ');
+    if (cell.isAlive()) {
+        out << '#';
+    } else {
+        out << ' ';
+    }
     return out;
 }
 
@@ -23,14 +28,14 @@ int main() {
     // **(Daniel's Mode Selection Menu)**
     int mode;
     cout << "1) Manual Preset\n2) Random Preset\n3) Other Presets\n";
-    string modePrompt = "Enter the number of the mode you would like: ";
+    string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
     cout << modePrompt;
     cin >> mode;
     errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
 
     if (mode == 1) {  // **Manual Mode (Daniel's implementation)**
         int aliveCellCount;
-        string manualPrompt = "Enter the number of alive cells: ";
+        string manualPrompt = "Enter the number of alive cells: "; //Used for errorCheckInt
         cout << manualPrompt;
         cin >> aliveCellCount;
         errorCheckInt(aliveCellCount, 0, width * height, manualPrompt);  // Ensures valid count

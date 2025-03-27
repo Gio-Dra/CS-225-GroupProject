@@ -16,7 +16,7 @@ private:
 
     // Converts (x, y) to 1D index so we can edit it within the code itself, simpler
     int index(int x, int y) const {
-        return y * width + x;
+        return (y * width) + x;
     }
 
 public:

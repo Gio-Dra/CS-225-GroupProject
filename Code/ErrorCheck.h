@@ -3,26 +3,28 @@
 
 using namespace std;
 
-// Keeps asking until x is a number and within range [min, max]
-void errorCheckInt(int &x, int min, int max, string prompt) {
-    while (true) {
-        if (cin.fail()) {
-            // If input wasn't a number
-            cin.clear();                // Clear the error state
-            cin.ignore(1000, '\n');     // Flush the garbage input
-            cout << "Error: Input must be a number." << endl;
-        } else if (x < min || x > max) {
-            // If input was a number but outside the valid range
-            cout << "Error: Input must be between " << min << " and " << max << "." << endl;
-        } else {
-            // Valid input — break out of the loop
-            break;
-        }
+// Validates input: must be a number and within [min, max] range
+void errorCheckInt(int &x, int min, int max, const string &prompt) {
+    bool valid = false;
 
-        // Prompt again
-        cout << prompt;
-        cin >> x;
+    while (!valid) {
+        try {
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                throw "Input must be a number.";
+            }
+
+            if (x < min || x > max) {
+                throw "Input is out of range.";
+            }
+
+            valid = true; // If we pass both checks, input is valid
+
+        } catch (const char* msg) {
+            cout << "Error: " << msg << endl;
+            cout << prompt;
+            cin >> x; // Retry
+        }
     }
 }
-
-

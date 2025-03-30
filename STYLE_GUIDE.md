@@ -1,6 +1,7 @@
 # Conway's Game of Life - Style Guide
 
 ## General Formatting
+- Every file should begin with a boilerplate header comment including file name, author, purpose, version, and references.
 - Use 4 spaces per indentation level.
 - Line length should not exceed 100 characters.
 - Use camelCase for variable and function names.
@@ -9,6 +10,7 @@
 ## File Structure
 - Separate code into `.h` (header) and `.cpp` (source) files.
 - Each class should have its own header file.
+- Use header guards (#ifndef, #define, #endif) or #pragma once in all .h files.
 
 ## Naming Conventions
 - **Variables:** `lowerCamelCase` (e.g., `isAlive`, `cellCount`).
@@ -34,3 +36,7 @@
 ## Error Handling
 - Use `try-catch` blocks for file I/O operations.
 - Return error codes where applicable.
+
+## Testing Debugging 
+- Avoid leaving debugging artifacts (e.g., commented-out code, stray `cout`s) in final submission.
+- 

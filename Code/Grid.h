@@ -1,3 +1,21 @@
+/****************************************************************************
+* File: Grid.h
+* Author: Daniel Warkentine, Gianni Dragos
+* Purpose: Defines the Grid class used in Conway’s Game of Life.
+* Handles creation, display, and update of a 2D grid of Cell objects.
+* Includes logic for random initialization, manual presets,
+* and classic Game of Life neighbor counting and rule application.
+*
+* Version: Idk
+*
+* Resources:
+*   - CS225 Canvas Slides (Classes, Vector, Loops, Overloading)
+*   - https://en.cppreference.com for STL vector and system() details
+*
+*
+*******************************************************************************/
+
+
 #ifndef GRID_H
 #define GRID_H
 

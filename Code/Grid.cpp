@@ -3,9 +3,13 @@
 using namespace std;
 
 // Daniel's Code: Random Preset Mode
-void Grid::randomize() {
+void Grid::randomize(int chance) {
     for (Cell &cell : cells) { // loops through every Cell in the "cells" vector, & refrences the actual cell
-        cell.setAlive(rand() % 2); // 50% chance of being alive
+        if ((rand() % 100) < chance) {
+            cell.setAlive(1);
+        } else {
+            cell.setAlive(0);
+        }
     }
 }
 

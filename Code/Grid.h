@@ -45,7 +45,7 @@ public:
     Grid(int w, int h) : width(w), height(h), cells(w * h) {}
 
     // Daniel's Code: Random Preset Mode
-    void randomize();
+    void randomize(int chance);
 
     // New Method for Manual Preset Mode
     // Allows users to input specific alive cell coordinates

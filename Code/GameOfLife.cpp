@@ -33,8 +33,17 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 100;
-    const int height = 50;
+    int width = 100;
+    int height = 50;
+    cout << "Welcome to Conway's Game of Life!" << endl;
+    string widthPrompt = "Enter the width (must be 500 at most): ";
+    cout << widthPrompt;
+    cin >> width;
+    errorCheckInt(width, 1, 500, widthPrompt);  // Ensures valid count
+    string heightPrompt = "Enter the height (must be 500 at most): ";
+    cout << heightPrompt;
+    cin >> height;
+    errorCheckInt(height, 1, 500, heightPrompt);  // Ensures valid count
     Grid board(width, height);
 
     // **(Daniel's Mode Selection Menu)**
@@ -46,15 +55,20 @@ int main() {
     errorCheckInt(mode, 1, 4, modePrompt);  // Exception Handling
 
     if (mode == 1) {  // **Manual Mode (Daniel's implementation)**
-        int aliveCellCount;
+        int aliveCells;
         string manualPrompt = "Enter the number of alive cells: "; //Used for errorCheckInt
         cout << manualPrompt;
-        cin >> aliveCellCount;
-        errorCheckInt(aliveCellCount, 0, width * height, manualPrompt);  // Ensures valid count
-        board.manualPreset(aliveCellCount);  // Calls function to set live cells manually
+        cin >> aliveCells;
+        errorCheckInt(aliveCells, 0, width * height, manualPrompt);  // Ensures valid count
+        board.manualPreset(aliveCells);  // Calls function to set live cells manually
 
     } else if (mode == 2) {  // **Random Mode (Daniel's logic)**
-        board.randomize(); //Randomize is defined in Grid.h btw lol
+        int chance = 50;
+        string chancePrompt = "Enter the chance of a cell to be alive (%): ";
+        cout << chancePrompt;
+        cin >> chance;
+        errorCheckInt(chance, 0, 100, chancePrompt);  // Ensures valid count
+        board.randomize(chance); //Randomize is defined in Grid.h btw lol
 
     } else if (mode == 3) {  // **Other Presets Placeholder**
         cout << "1) Spaceship\n2) F Pentomino\n3) Gun\n";
@@ -63,7 +77,7 @@ int main() {
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
     }else if (mode == 4) {
-        board.randomize();  // or board.manualPreset(...) if you want to add that option too
+        board.randomize(50);  // or board.manualPreset(...) if you want to add that option too
 
         int iterations;
         string iterPrompt = "Enter the number of iterations to simulate: ";

@@ -36,6 +36,7 @@ int main() {
     int width = 100;
     int height = 50;
     cout << "Welcome to Conway's Game of Life!" << endl;
+
     string widthPrompt = "Enter the width (must be 500 at most): ";
     cout << widthPrompt;
     cin >> width;
@@ -44,11 +45,12 @@ int main() {
     cout << heightPrompt;
     cin >> height;
     errorCheckInt(height, 1, 500, heightPrompt);  // Ensures valid count
+
     Grid board(width, height);
 
     // **(Daniel's Mode Selection Menu)**
     int mode;
-    cout << "1) Manual Preset\n2) Random Preset\n3) Other Presets\n";
+    cout << "1) Manual Preset\n2) Random Preset\n3) Preset Presets\n4) Print to File\n";
     string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
     cout << modePrompt;
     cin >> mode;
@@ -71,11 +73,67 @@ int main() {
         board.randomize(chance); //Randomize is defined in Grid.h btw lol
 
     } else if (mode == 3) {  // **Other Presets Placeholder**
-        cout << "1) Spaceship\n2) F Pentomino\n3) Gun\n";
+        cout << "1) Spaceship\n2) F Pentomino\n3) Gosper Glider Gun\n";
         modePrompt = "Enter the number of the preset you would like: "; //Used for errorCheckInt
         cout << modePrompt;
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
+
+        if (mode == 1) {
+            board.setCellAlive(1, 0);
+            board.setCellAlive(2, 1);
+            board.setCellAlive(0, 2);
+            board.setCellAlive(1, 2);
+            board.setCellAlive(2, 2);
+        } else if (mode == 2) {
+            board.setCellAlive(45, 14);
+            board.setCellAlive(46, 14);
+            board.setCellAlive(44, 15);
+            board.setCellAlive(45, 15);
+            board.setCellAlive(45, 16);
+        } else if (mode == 3) {
+            board.setCellAlive(1, 5);
+            board.setCellAlive(2, 5);
+            board.setCellAlive(1, 6);
+            board.setCellAlive(2, 6);
+            
+            board.setCellAlive(11, 6);
+            board.setCellAlive(11, 5);
+            board.setCellAlive(11, 7);
+            board.setCellAlive(12, 4);
+            board.setCellAlive(12, 8);
+            board.setCellAlive(13, 3);
+            board.setCellAlive(13, 9);
+            board.setCellAlive(14, 3);
+            board.setCellAlive(14, 9);
+            
+            board.setCellAlive(15, 6);
+            board.setCellAlive(16, 4);
+            board.setCellAlive(16, 8);
+            board.setCellAlive(17, 6);
+            board.setCellAlive(17, 5);
+            board.setCellAlive(17, 7);
+            board.setCellAlive(18, 6);
+            
+            board.setCellAlive(21, 3);
+            board.setCellAlive(22, 3);
+            board.setCellAlive(21, 4);
+            board.setCellAlive(22, 4);
+            board.setCellAlive(21, 5);
+            board.setCellAlive(22, 5);
+            board.setCellAlive(23, 2);
+            board.setCellAlive(23, 6);
+            board.setCellAlive(25, 2);
+            board.setCellAlive(25, 6);
+            board.setCellAlive(25, 1);
+            board.setCellAlive(25, 7);
+            
+            board.setCellAlive(35, 3);
+            board.setCellAlive(36, 3);
+            board.setCellAlive(35, 4);
+            board.setCellAlive(36, 4);
+        }
+
     }else if (mode == 4) {
         board.randomize(50);  // or board.manualPreset(...) if you want to add that option too
 
@@ -103,9 +161,15 @@ int main() {
 
     cout << "Here is your starting board, press e to continue." << endl;
     board.display();
-    char user_input;
-    cin >> user_input;
-
+    char userInput;
+    cin >> userInput;
+    
+    int waitTime = 200;
+    string waitTimePrompt = "Enter the delay between iterations (in milliseconds): ";
+    cout << waitTimePrompt;
+    cin >> waitTime;
+    errorCheckInt(waitTime, 0, 1000, waitTimePrompt);  // Ensures valid count
+    
     Game game(board);
 
     // **Game Loop**
@@ -118,7 +182,7 @@ int main() {
         // this_thread::sleep_for(...) pauses the current thread
         // chrono::milliseconds(200) creates a duration object of 200 milliseconds
         // Combined, this line tells the CPU: "Wait 200ms before doing the next update"
-        this_thread::sleep_for(chrono::milliseconds(200));
+        this_thread::sleep_for(chrono::milliseconds(waitTime));
 
         // Refrences:
         // "sleep_for" https://cplusplus.com/reference/thread/this_thread/sleep_for/

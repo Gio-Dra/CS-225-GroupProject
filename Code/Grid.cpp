@@ -121,3 +121,7 @@ void Grid::writeToFile(std::ostream& out) {
         out << '\n';
     }
 }
+
+//Destroy
+Grid::~Grid() {
+}

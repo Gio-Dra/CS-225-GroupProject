@@ -34,8 +34,8 @@ int main() {
 
     const int width = 100;
     const int height = 200;
-    Grid game(width, height);
-    //Grid* game = new Game(width, height);
+    Game game(width, height);
+    Grid* board = new Game(width, height);
 
     // **(Daniel's Mode Selection Menu)**
     int mode;
@@ -51,14 +51,14 @@ int main() {
         cout << manualPrompt;
         cin >> aliveCellCount;
         errorCheckInt(aliveCellCount, 0, width * height, manualPrompt);  // Ensures valid count
-        game.manualPreset(aliveCellCount);  // Calls function to set live cells manually
+        board.manualPreset(aliveCellCount);  // Calls function to set live cells manually
 
     } else if (mode == 2) {  // **Random Mode (Daniel's logic)**
-        game.randomize(); //Randomize is defined in Grid.h btw lol
+        board.randomize(); //Randomize is defined in Grid.h btw lol
 
     } else {  // **Other Presets Placeholder**
         cout << "1) Spaceship\n2) F Pentomino\n3) Gun\n";
-        string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
+        modePrompt = "Enter the number of the preset you would like: "; //Used for errorCheckInt
         cout << modePrompt;
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
@@ -66,8 +66,8 @@ int main() {
 
     // **Game Loop**
     while (true) {
-        game.display(); //Contained in grid.h
-        game.update(); //Contained in... ...grid.h lol
+        board.display(); //Contained in grid.h
+        board.update(); //Contained in... ...grid.h lol
         // Pause execution for 200 milliseconds to slow down the loop
         // This makes the animation human-readable instead of blazing by at CPU speed
 

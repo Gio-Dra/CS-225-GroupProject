@@ -96,7 +96,7 @@ public:
     }
 
     // Updates the grid to the next generation based on Conway's Game of Life rules
-    void update() {
+    virtual void update() {
         // Step 1: Create a copy of the current grid state.
         // This will hold the next generation of cell states.
         vector<Cell> nextState = cells;
@@ -133,7 +133,7 @@ public:
 
 
     // Displays the grid
-    void display() const {
+    virtual void display() const {
         system("clear");  // Use "cls" for Windows
         cout << "\033[2J\033[1;1H";
         for (int y = 0; y < height; y++) {

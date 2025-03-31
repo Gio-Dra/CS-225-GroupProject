@@ -38,7 +38,7 @@ protected:
     }
 
 public:
-    virtual ~Grid();
+    ~Grid();
 
     void writeToFile(std::ostream& out);
 

@@ -60,6 +60,9 @@ class Game : public Grid {
     void display() const {
         system("clear");  // Use "cls" for Windows
         cout << "\033[2J\033[1;1H";
+        cout << "Iterations: " << iterations;
+        cout << "Number of Alive Cells: " << aliveCellCount;
+        cout << "Number of Dead Cells: " << deadCellCount;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 // Access the cell at (x, y) using the index() function to convert 2D coords to 1D,
@@ -68,8 +71,6 @@ class Game : public Grid {
             }
             cout << endl;
         }
-
-
     }
 };
 

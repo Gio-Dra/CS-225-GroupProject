@@ -35,7 +35,7 @@ int main() {
     const int width = 100;
     const int height = 200;
     Game game(width, height);
-    Grid* board = new Game(width, height);
+    Grid &board = game;
 
     // **(Daniel's Mode Selection Menu)**
     int mode;

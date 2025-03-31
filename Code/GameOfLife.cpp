@@ -33,10 +33,9 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 10;
-    const int height = 20;
-    Game game(width, height);
-    Grid &board = game;
+    const int width = 100;
+    const int height = 200;
+    Grid board(width, height);
 
     // **(Daniel's Mode Selection Menu)**
     int mode;
@@ -89,11 +88,20 @@ int main() {
         return 0; // Exit the program after writing to file
         }
 
+    cout << "Here is your starting board, press enter to continue." << endl;
+    board.display();
+    char user_input;
+    cin >> user_input;
+    while (user_input != '\n') {
+        cin >> user_input;
+    }
+
+    Game game(board);
 
     // **Game Loop**
     while (true) {
-        board.display(); //Contained in grid.h
-        board.update(); //Contained in... ...grid.h lol
+        game.display(); //Contained in grid.h
+        game.update(); //Contained in... ...grid.h lol
         // Pause execution for 200 milliseconds to slow down the loop
         // This makes the animation human-readable instead of blazing by at CPU speed
 

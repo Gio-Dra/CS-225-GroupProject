@@ -10,7 +10,7 @@ class Game : public Grid {
     int iterations;
 
     public:
-    Game(int w, int h) : Grid(w, h), aliveCellCount(0), deadCellCount(width * height), iterations(0) {}
+    Game(const Grid &board);
 
     void writeToFile(std::ostream& out) ;
 

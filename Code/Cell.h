@@ -5,7 +5,7 @@
 *          Each Cell object tracks its own alive/dead state and
 *          supports accessors, mutators, and stream insertion.
 *
-* Version: 1.0 - Feb 28, 2025
+* Version: Final
 *
 * Resources:
 *   - CS225 Canvas Slides (Classes, Constructors, Friend Functions)

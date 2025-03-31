@@ -6,12 +6,11 @@
 * Includes logic for random initialization, manual presets,
 * and classic Game of Life neighbor counting and rule application.
 *
-* Version: Idk
+* Version: Final
 *
 * Resources:
 *   - CS225 Canvas Slides (Classes, Vector, Loops, Overloading)
 *   - https://en.cppreference.com for STL vector and system() details
-*
 *
 *******************************************************************************/
 

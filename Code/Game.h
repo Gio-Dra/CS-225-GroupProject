@@ -1,3 +1,19 @@
+/****************************************************************************
+* File: Game.h
+* Author: Daniel Warkentine, Gianni Dragos
+* Purpose: Defines the Game class used in Conway’s Game of Life.
+* Handles Game-wide variables such as iterations
+* and the number of alive and dead cells.
+* Includes logic for overriding update and display functions.
+*
+* Version: Final
+*
+* Resources:
+*   - CS225 Canvas Slides (Classes, Overriding)
+*
+*******************************************************************************/
+
+
 #ifndef GAME_H
 #define GAME_H
 

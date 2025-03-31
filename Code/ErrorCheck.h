@@ -5,7 +5,7 @@
 *          input is a number and falls within a specified range. Used for
 *          robust input handling in interactive console applications.
 *
-* Version: 1.0 - Feb 28, 2025
+* Version: Final
 *
 * Resources:
 *   - CS225 Canvas Slides (Function Declarations, Exception Handling)

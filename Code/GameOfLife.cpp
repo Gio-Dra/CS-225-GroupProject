@@ -32,8 +32,8 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 10;
-    const int height = 20;
+    const int width = 100;
+    const int height = 200;
     Grid game(width, height);
     //Grid* game = new Game(width, height);
 
@@ -57,7 +57,11 @@ int main() {
         game.randomize(); //Randomize is defined in Grid.h btw lol
 
     } else {  // **Other Presets Placeholder**
-        cout << "Other presets haven't been implemented yet.\n";
+        cout << "1) Spaceship\n2) F Pentomino\n3) Gun\n";
+        string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
+        cout << modePrompt;
+        cin >> mode;
+        errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
     }
 
     // **Game Loop**

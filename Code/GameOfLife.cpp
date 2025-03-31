@@ -70,8 +70,14 @@ int main() {
         }
     }
 
-    cout << "Here is your starting board:" << endl;
+    cout << "Here is your starting board, press enter to continue." << endl;
     board.display();
+    char user_input;
+    cin >> user_input;
+    while (user_input != '\n') {
+        cin >> user_input;
+    }
+
     Game game(board);
 
     // **Game Loop**

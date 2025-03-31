@@ -1,5 +1,13 @@
 #include "Game.h"
 
+// Game Constructor
+Game::Game(const Grid &board) : Grid(board), iterations(0), aliveCellCount(0), deadCellCount(width * height) {
+    for (Cell &cell : cells) { // loops through every Cell in the "cells" vector, & refrences the actual cell
+        aliveCellCount += cell.isAlive();
+        deadCellCount -= cell.isAlive();
+    }
+}
+
 // Updates the game to the next generation based on Conway's Game of Life rules
 void Game::update() {
     // Step 1: Create a copy of the current grid state.

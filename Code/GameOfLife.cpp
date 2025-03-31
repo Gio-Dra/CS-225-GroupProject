@@ -34,8 +34,7 @@ int main() {
 
     const int width = 100;
     const int height = 200;
-    Game game(width, height);
-    Grid &board = game;
+    Grid board(width, height);
 
     // **(Daniel's Mode Selection Menu)**
     int mode;
@@ -62,12 +61,23 @@ int main() {
         cout << modePrompt;
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
+        if (mode == 1) {
+            ;
+        } else if (mode == 2) {
+            ;
+        } else {
+            ;
+        }
     }
+
+    cout << "Here is your starting board:" << endl;
+    board.display();
+    Game game(board);
 
     // **Game Loop**
     while (true) {
-        board.display(); //Contained in grid.h
-        board.update(); //Contained in... ...grid.h lol
+        game.display(); //Contained in grid.h
+        game.update(); //Contained in... ...grid.h lol
         // Pause execution for 200 milliseconds to slow down the loop
         // This makes the animation human-readable instead of blazing by at CPU speed
 

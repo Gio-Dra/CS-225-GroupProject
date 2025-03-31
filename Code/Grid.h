@@ -28,7 +28,7 @@
 using namespace std;
 
 class Grid {
-private:
+protected:
     vector<Cell> cells;
     int width, height;
 
@@ -42,7 +42,6 @@ public:
 
     // Daniel's Code: Random Preset Mode
     void randomize() {
-        srand(time(0));
         for (Cell &cell : cells) { // loops through every Cell in the "cells" vector, & refrences the actual cell
             cell.setAlive(rand() % 2); // 50% chance of being alive
         }

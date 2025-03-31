@@ -1,7 +1,7 @@
 /****************************************************************************
 * File: GameOfLife.cpp
 * Author: Daniel Warkentine, Gianni Dragos
-* Purpose: Implements Conway’s Game of Life using a Grid and Cell class.
+* Purpose: Implements Conway’s Game of Life using a Grid, Game, and Cell class.
 * Demonstrates user input handling, basic exception checking, and
 * a game loop with animation delay using std::this_thread::sleep_for.
 * Features multiple initialization modes and integrates custom
@@ -20,8 +20,9 @@
 
 
 
-#include "Grid.h"
 #include "Cell.h"
+#include "Grid.h"
+#include "Game.h"
 #include "ErrorCheck.h"
 #include <thread> // Stole from stack overflow to get a pause cycle going
 #include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
@@ -34,6 +35,7 @@ int main() {
     const int width = 100;
     const int height = 200;
     Grid game(width, height);
+    //Grid* game = new Game(width, height);
 
     // **(Daniel's Mode Selection Menu)**
     int mode;

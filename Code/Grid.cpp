@@ -96,8 +96,8 @@ void Grid::update() {
 
 // Displays the grid
 void Grid::display() const {
-    system("clear");  // Use "cls" for Windows
-    cout << "cls" << endl;
+//    system("clear");  // Use "cls" for Windows
+//    cout << "cls" << endl;
     cout << "\033[2J\033[1;1H";
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {

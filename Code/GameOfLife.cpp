@@ -34,7 +34,7 @@ int main() {
     srand(time(0));  // Seed the random number generator
 
     const int width = 100;
-    const int height = 200;
+    const int height = 50;
     Grid board(width, height);
 
     // **(Daniel's Mode Selection Menu)**
@@ -73,7 +73,6 @@ int main() {
 
         for (int i = 0; i < iterations; ++i) {
             board.update();
-            this_thread::sleep_for(chrono::milliseconds(200));
         }
 
         ofstream outFile("FinalGrid.txt");
@@ -88,13 +87,10 @@ int main() {
         return 0; // Exit the program after writing to file
         }
 
-    cout << "Here is your starting board, press enter to continue." << endl;
+    cout << "Here is your starting board, press e to continue." << endl;
     board.display();
     char user_input;
     cin >> user_input;
-    while (user_input != '\n') {
-        cin >> user_input;
-    }
 
     Game game(board);
 

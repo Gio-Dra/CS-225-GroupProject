@@ -12,6 +12,9 @@ class Game : public Grid {
     public:
     Game(const Grid &board);
 
+    void writeToFile(std::ostream& out) ;
+
+
     // Updates the game to the next generation based on Conway's Game of Life rules
     void update();
 

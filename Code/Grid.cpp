@@ -108,3 +108,16 @@ void Grid::display() const {
         cout << endl;
     }
 }
+
+void Grid::writeToFile(std::ostream& out) {
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            if (cells[i * width + j].isAlive()) {
+                out << '#';
+            } else {
+                out << ' ';
+            }
+        }
+        out << '\n';
+    }
+}

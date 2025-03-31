@@ -38,6 +38,8 @@ protected:
     }
 
 public:
+    void writeToFile(std::ostream& out);
+
     Grid(int w, int h) : width(w), height(h), cells(w * h) {}
 
     // Daniel's Code: Random Preset Mode

@@ -24,6 +24,7 @@
 #include "Grid.h"
 #include "Game.h"
 #include "ErrorCheck.h"
+#include <fstream>
 #include <thread> // Stole from stack overflow to get a pause cycle going
 #include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
 
@@ -32,8 +33,8 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 100;
-    const int height = 200;
+    const int width = 10;
+    const int height = 20;
     Game game(width, height);
     Grid &board = game;
 
@@ -43,7 +44,7 @@ int main() {
     string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
     cout << modePrompt;
     cin >> mode;
-    errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
+    errorCheckInt(mode, 1, 4, modePrompt);  // Exception Handling
 
     if (mode == 1) {  // **Manual Mode (Daniel's implementation)**
         int aliveCellCount;
@@ -56,13 +57,38 @@ int main() {
     } else if (mode == 2) {  // **Random Mode (Daniel's logic)**
         board.randomize(); //Randomize is defined in Grid.h btw lol
 
-    } else {  // **Other Presets Placeholder**
+    } else if (mode == 3) {  // **Other Presets Placeholder**
         cout << "1) Spaceship\n2) F Pentomino\n3) Gun\n";
         modePrompt = "Enter the number of the preset you would like: "; //Used for errorCheckInt
         cout << modePrompt;
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
-    }
+    }else if (mode == 4) {
+        board.randomize();  // or board.manualPreset(...) if you want to add that option too
+
+        int iterations;
+        string iterPrompt = "Enter the number of iterations to simulate: ";
+        cout << iterPrompt;
+        cin >> iterations;
+        errorCheckInt(iterations, 1, 1000000, iterPrompt);
+
+        for (int i = 0; i < iterations; ++i) {
+            board.update();
+            this_thread::sleep_for(chrono::milliseconds(200));
+        }
+
+        ofstream outFile("FinalGrid.txt");
+        if (outFile.is_open()) {
+            board.writeToFile(outFile);
+            outFile.close();
+            cout << "Final grid state written to FinalGrid.txt\n";
+        } else {
+            cerr << "Failed to open FinalGrid.txt for writing.\n";
+        }
+
+        return 0; // Exit the program after writing to file
+        }
+
 
     // **Game Loop**
     while (true) {

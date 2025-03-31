@@ -43,7 +43,7 @@ void Game::update() {
     // Step 6: Update the current grid state with the new generation
     cells = nextState;
 
-    // Game Class Updating
+    // Step 7: Update Game Class Variables
     aliveCellCount = 0;
     deadCellCount = width * height;
     for (Cell &cell : cells) { // loops through every Cell in the "cells" vector, & refrences the actual cell
@@ -69,5 +69,3 @@ void Game::display() const {
     cout << "Number of Alive Cells: " << aliveCellCount << endl;
     cout << "Number of Dead Cells: " << deadCellCount << endl;
 }
-
-

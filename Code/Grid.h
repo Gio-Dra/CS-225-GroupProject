@@ -43,14 +43,14 @@ public:
 
     Grid(int w, int h) : width(w), height(h), cells(w * h) {}
 
-    // Daniel's Code: Random Preset Mode
+    // Random Preset Mode
     void randomize(int chance);
 
-    // New Method for Manual Preset Mode
+    // Method for Manual Preset Mode
     // Allows users to input specific alive cell coordinates
     void setCellAlive(int x, int y);
 
-    // Daniel's Manual Preset Mode: Allows user to specify live cells
+    // Manual Preset Mode: Allows user to specify live cells
     void manualPreset(int aliveCellCount);
 
     // Counts how many of the 8 neighboring cells around (x, y) are alive

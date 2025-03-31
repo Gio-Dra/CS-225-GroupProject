@@ -5,7 +5,7 @@
 * input from the user. Ensures the input is numeric and within a
 * specified range, re-prompts on failure using try-catch logic.
 *
-* Version: 1.0 - Feb 28, 2025
+* Version: Final
 *
 * Resources:
 *   - CS225 Canvas (Exception Handling, User Input Validation)

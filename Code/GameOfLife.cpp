@@ -19,14 +19,13 @@
 *******************************************************************************/
 
 
-
 #include "Cell.h"
 #include "Grid.h"
 #include "Game.h"
 #include "ErrorCheck.h"
 #include <fstream>
-#include <thread> // Stole from stack overflow to get a pause cycle going
-#include <chrono> //https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
+#include <thread>  // From stack overflow to get a pause cycle going
+#include <chrono>  // https://stackoverflow.com/questions/68055404/does-linuxs-chronoduration-also-include-the-time-a-thread-is-paused
 
 using namespace std;
 
@@ -48,7 +47,7 @@ int main() {
 
     Grid board(width, height);
 
-    // **(Daniel's Mode Selection Menu)**
+    // **(Mode Selection Menu)**
     int mode;
     cout << "1) Manual Preset\n2) Random Preset\n3) Preset Presets\n4) Print to File\n";
     string modePrompt = "Enter the number of the mode you would like: "; //Used for errorCheckInt
@@ -56,7 +55,7 @@ int main() {
     cin >> mode;
     errorCheckInt(mode, 1, 4, modePrompt);  // Exception Handling
 
-    if (mode == 1) {  // **Manual Mode (Daniel's implementation)**
+    if (mode == 1) {  // **Manual Mode**
         int aliveCells;
         string manualPrompt = "Enter the number of alive cells: "; //Used for errorCheckInt
         cout << manualPrompt;
@@ -64,17 +63,17 @@ int main() {
         errorCheckInt(aliveCells, 0, width * height, manualPrompt);  // Ensures valid count
         board.manualPreset(aliveCells);  // Calls function to set live cells manually
 
-    } else if (mode == 2) {  // **Random Mode (Daniel's logic)**
+    } else if (mode == 2) {  // **Random Mode**
         int chance = 50;
         string chancePrompt = "Enter the chance of a cell to be alive (%): ";
         cout << chancePrompt;
         cin >> chance;
         errorCheckInt(chance, 0, 100, chancePrompt);  // Ensures valid count
-        board.randomize(chance); //Randomize is defined in Grid.h btw lol
+        board.randomize(chance);  // Randomize is defined in Grid.h btw lol
 
     } else if (mode == 3) {  // **Other Presets Placeholder**
         cout << "1) Spaceship\n2) F Pentomino\n3) Gosper Glider Gun\n";
-        modePrompt = "Enter the number of the preset you would like: "; //Used for errorCheckInt
+        modePrompt = "Enter the number of the preset you would like: ";  // Used for errorCheckInt
         cout << modePrompt;
         cin >> mode;
         errorCheckInt(mode, 1, 3, modePrompt);  // Exception Handling
@@ -168,28 +167,26 @@ int main() {
     string waitTimePrompt = "Enter the delay between iterations (in milliseconds): ";
     cout << waitTimePrompt;
     cin >> waitTime;
-    errorCheckInt(waitTime, 0, 1000, waitTimePrompt);  // Ensures valid count
+    errorCheckInt(waitTime, 0, 10000, waitTimePrompt);  // Ensures valid count
     
     Game game(board);
 
     // **Game Loop**
     while (true) {
-        game.display(); //Contained in grid.h
-        game.update(); //Contained in... ...grid.h lol
-        // Pause execution for 200 milliseconds to slow down the loop
+        game.display(); // Contained in grid.h
+        game.update(); // Contained in... ...grid.h lol
+        // Pause execution for [waitTime] milliseconds to slow down the loop
         // This makes the animation human-readable instead of blazing by at CPU speed
 
         // this_thread::sleep_for(...) pauses the current thread
-        // chrono::milliseconds(200) creates a duration object of 200 milliseconds
-        // Combined, this line tells the CPU: "Wait 200ms before doing the next update"
+        // chrono::milliseconds(waitTime) creates a duration object of [waitTime] milliseconds
+        // Combined, this line tells the CPU: "Wait [waitTime]ms before doing the next update"
         this_thread::sleep_for(chrono::milliseconds(waitTime));
 
         // Refrences:
         // "sleep_for" https://cplusplus.com/reference/thread/this_thread/sleep_for/
-        // "chrono"  https://en.cppreference.com/w/cpp/chrono
+        // "chrono" https://en.cppreference.com/w/cpp/chrono
         // "this_thread" https://en.cppreference.com/w/cpp/thread/this_thread
-
-
     }
 
     return 0;

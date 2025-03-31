@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Daniel's Code: Random Preset Mode
+// Random Preset Mode
 void Grid::randomize(int chance) {
     for (Cell &cell : cells) { // loops through every Cell in the "cells" vector, & refrences the actual cell
         if ((rand() % 100) < chance) {
@@ -13,7 +13,7 @@ void Grid::randomize(int chance) {
     }
 }
 
-// New Method for Manual Preset Mode
+// Method for Manual Preset Mode
 // Allows users to input specific alive cell coordinates
 void Grid::setCellAlive(int x, int y) {
     if (x >= 0 && x < width && y >= 0 && y < height) {
@@ -21,7 +21,7 @@ void Grid::setCellAlive(int x, int y) {
     }
 }
 
-// Daniel's Manual Preset Mode: Allows user to specify live cells
+// Manual Preset Mode: Allows user to specify live cells
 void Grid::manualPreset(int aliveCellCount) {
     int x, y;
     for (int i = 0; i < aliveCellCount; i++) {

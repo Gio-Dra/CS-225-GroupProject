@@ -32,8 +32,8 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    const int width = 100;
-    const int height = 200;
+    const int width = 10;
+    const int height = 20;
     Grid game(width, height);
     //Grid* game = new Game(width, height);
 

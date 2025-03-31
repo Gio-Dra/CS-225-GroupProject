@@ -33,6 +33,53 @@
 - Pass objects by reference when possible to avoid unnecessary copies.
 - Use `const` where applicable.
 
+### Example Function
+```cpp
+// Counts how many neighbors around (x, y) are alive
+int countNeighbors(int x, int y) const {
+    int count = 0;
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            if (dx == 0 && dy == 0) continue;
+            int nx = x + dx;
+            int ny = y + dy;
+            if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+                if (cells[index(nx, ny)].isAlive()) {
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+```
+
+## Classes
+- Use PascalCase for class names.
+- Place member variables in private, and keep access methods in public.
+- Include at least a constructor, and a destructor if needed.
+- Provide comments for class purpose and non-trivial methods.
+
+### Example Class
+```cpp
+// Represents one cell in the grid
+class Cell {
+private:
+    bool alive;
+
+public:
+    Cell() : alive(false) {}
+
+    void setAlive(bool state) {
+        alive = state;
+    }
+
+    bool isAlive() const {
+        return alive;
+    }
+};
+```
+
 ## Error Handling
 - Use `try-catch` blocks for file I/O operations.
 - Return error codes where applicable.
